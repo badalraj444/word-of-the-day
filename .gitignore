@@ -3,3 +3,5 @@ planning.md
 
 node_modules/
 dist/
+
+.env
