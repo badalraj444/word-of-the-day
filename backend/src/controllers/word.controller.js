@@ -85,12 +85,14 @@ export async function addWord(req, res) {
     ];
 
     const result = await pool.query(query, values);
+    console.log("Added a new word!");
 
     res
       .status(200)
       .json({ message: "Word added successfully!", data: result.rows[0] });
   } catch (error) {
     if (error.code === "23505") {
+      console.warn("Attempted to add a duplicate word:", word);
       return res.status(409).json({
         error: "Word already exists",
       });

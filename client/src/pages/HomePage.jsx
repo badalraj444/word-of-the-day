@@ -33,9 +33,14 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>Word: {word.word}</h1>
-      <h2>Meaning: {word.meaning}</h2>
+      <div>
+        <h1>Word of the day...</h1>
+      </div>
+      <div className='word-container'>
+      <h2>Word: {word.word}</h2>
+      <h3>Meaning: {word.meaning}</h3>
       <p><em>Example: {word.example}</em></p>
+    </div>
     </div>
   );
 };
