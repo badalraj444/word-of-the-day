@@ -1,17 +1,19 @@
-import HomePage from './pages/HomePage'
-import AddWord from './pages/AddWord'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import AddWord from './pages/AddWord'
+import HomePage from './pages/HomePage'
 
 function App() {
- 
+
 
   return (
     <>
-    <div>
-      {/* WORD OF THE DAY : Hello! */}
-      <HomePage/>
-      {/* <AddWord/> */}
-    </div>
+      <Routes>
+        <Route path='/' element={<HomePage/>} />
+      </Routes>
+      <Routes>
+        <Route path='/add-a-word' element={<AddWord/>} />
+      </Routes>
     </>
   )
 }
