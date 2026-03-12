@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import AddWord from './pages/AddWord'
 import HomePage from './pages/HomePage'
+import Navbar from './components/Navbar'
 
 function App() {
 
@@ -12,8 +13,9 @@ function App() {
         <Route path='/' element={<HomePage/>} />
       </Routes>
       <Routes>
-        <Route path='/add-a-word' element={<AddWord/>} />
+        <Route path='/add-word' element={<AddWord/>} />
       </Routes>
+      {/* <Navbar/> */}
     </>
   )
 }
