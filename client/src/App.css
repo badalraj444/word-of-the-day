@@ -1,23 +1,22 @@
-/* 1. Update the Homepage wrapper to ensure it doesn't get cut off by the fixed nav */
+/* 1. Homepage layout */
 .homepage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 100px; /* Space for your fixed navbar */
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding-top: 100px;
 }
 
-/* 2. Make the 'Word of the Day' title look more elegant */
+/* 2. Top Title */
 .title {
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #94a3b8; /* A soft muted blue-grey */
+  color: var(--text-muted); /* Using variable */
   margin-bottom: 0.5rem;
 }
 
-/* 3. Redesign the Word Container to be 'Classic' */
+/* 3. The Classic Card */
 .word-container {
   display: flex;
   flex-direction: column;
@@ -25,24 +24,25 @@
   max-width: 500px;
   width: 90%;
   padding: 40px;
-  background-color: #1e1e1e; /* Slightly lighter than the body background */
-  border: 1px solid #334155; /* Subtle border instead of bright purple */
+  background-color: var(--bg-surface); /* Using variable */
+  border: 1px solid var(--border-subtle); /* Using variable */
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Adds depth */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* 4. Style the text hierarchy */
+/* 4. Text inside the card */
 .word-container h2 {
   font-size: 3rem;
   margin: 0;
-  color: #ffffff;
+  color: var(--text-primary);
   font-weight: 700;
 }
 
 .word-container h3 {
   font-size: 1.1rem;
   font-weight: 400;
-  color: #cbd5e1;
+  color: var(--text-primary);
+  opacity: 0.9; /* Slightly softer than the main word */
   margin-top: 10px;
   line-height: 1.6;
 }
@@ -50,7 +50,7 @@
 .word-container p {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid #334155;
-  color: #94a3b8;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-muted);
   font-style: italic;
 }

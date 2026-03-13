@@ -1,8 +1,20 @@
+/* Global variables - The "Theme" */
+:root {
+  --bg-main: #0f172a;       /* Dark Navy Blue */
+  --bg-surface: #1e293b;    /* Slightly lighter Slate for cards */
+  --text-primary: #f8fafc;  /* Clean White */
+  --text-muted: #94a3b8;    /* Muted Slate Gray */
+  --accent: #6366f1;        /* Modern Indigo */
+  --border-subtle: #334155; /* Dark Slate border */
+}
+
 body {
   margin: 0;
-  display: block; /* Changed from flex */
+  display: block;
   min-width: 320px;
   min-height: 100vh;
-  background-color: black;
-  color: azure;
+  /* Use our new variables */
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
