@@ -136,4 +136,8 @@
   background: var(--bg-surface);
 }
 
-.nav-items
+.nav-items{
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
