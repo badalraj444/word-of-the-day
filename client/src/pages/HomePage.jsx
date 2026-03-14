@@ -33,10 +33,10 @@ const HomePage = () => {
 
   return (
     <div className='homepage'>
-      <div>
+      
         <h1 className='title'>Word of the day...</h1>
-      </div>
-      <br/>
+      
+      
       <div className='word-container'>
       <h2>Word: {word.word}</h2>
       <h3>Meaning: {word.meaning}</h3>

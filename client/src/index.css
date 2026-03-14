@@ -4,8 +4,14 @@
   --bg-surface: #1e293b;    /* Slightly lighter Slate for cards */
   --text-primary: #f8fafc;  /* Clean White */
   --text-muted: #94a3b8;    /* Muted Slate Gray */
+  --input-bg: #03102f;
   --accent: #6366f1;        /* Modern Indigo */
   --border-subtle: #334155; /* Dark Slate border */
+  /* Button Theme */
+  --input-bg: #0f172a; /* Same as bg-main to create contrast with the card */
+  --button-bg: var(--accent);
+  --button-hover: #4f46e5;
+  --button-text: #ffffff;
 }
 
 body {

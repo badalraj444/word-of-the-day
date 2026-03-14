@@ -33,7 +33,7 @@ const AddWord = () => {
 
         // reset form in ONE LINE
         setFormState(initialFormState);
-      }else if (response.status === 409) {
+      } else if (response.status === 409) {
         alert("Word already exists!");
         // reset form in ONE LINE
         setFormState(initialFormState);
@@ -49,16 +49,16 @@ const AddWord = () => {
   };
 
   return (
-    <div>
-      <div className="page-title">
-        <h1>Add a New Word</h1>
-      </div>
-      <div className="form-container">
+    <div className="addWordPage">
+
+      <h1 className="title">Add a New Word</h1>
+
+
       <form onSubmit={handleSubmit} className="form">
 
         <label className="form-group">
           <span>Word</span>
-          <input
+          <input className="input"
             type="text"
             name="word"
             value={formState.word}
@@ -69,7 +69,7 @@ const AddWord = () => {
 
         <label className="form-group">
           <span>Meaning</span>
-          <input
+          <input className="input"
             type="text"
             name="meaning"
             value={formState.meaning}
@@ -80,7 +80,7 @@ const AddWord = () => {
 
         <label className="form-group">
           <span>Example</span>
-          <input type="text"
+          <input className="input" type="text"
             name="example"
             value={formState.example}
             onChange={handleChange}
@@ -96,7 +96,6 @@ const AddWord = () => {
         />
 
       </form>
-    </div>
     </div>
   );
 };
