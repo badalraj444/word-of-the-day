@@ -127,3 +127,13 @@
   background-color: var(--button-hover);
   transform: translateY(-1px);
 }
+
+.nav-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--bg-surface);
+}
+
+.nav-items
