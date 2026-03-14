@@ -12,6 +12,7 @@
   --button-bg: var(--accent);
   --button-hover: #4f46e5;
   --button-text: #ffffff;
+  --nav-bg: rgba(30, 41, 59, 0.8)
 }
 
 body {
