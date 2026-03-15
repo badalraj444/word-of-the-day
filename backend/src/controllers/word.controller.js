@@ -1,5 +1,13 @@
 import "dotenv/config";
+import fs from "fs";
+import path from "node:path";
+import { fileURLToPath } from "url";
 import pool from "../config/db.js"; // Import the database connection pool
+import cache from "../utils/cache.json" with { type: "json" };
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// Add ".." to move up from 'controllers' to 'src'
+const cachePath = path.join(__dirname, "..", "utils", "cache.json");
 
 export const getWords = async (req, res) => {
   try {
@@ -13,9 +21,20 @@ export const getWords = async (req, res) => {
 };
 
 export async function getWordOfTheDay(req, res) {
+  //check cache
+  // 1. Normalize today's date to a string (YYYY-MM-DD) for easy comparison
+  const todayStr = new Date().toISOString().split("T")[0];
+
+  // 2. Compare strings to strings
+  if (cache.date === todayStr) {
+    console.log("Cache hit!");
+    return res.status(200).json(cache.cacheword);
+  }
+  //cache miss
   try {
+    console.log("cache miss. querying database...");
     // 1. Calculate the ID based on the date
-    const today = new Date().setHours(0, 0, 0, 0); // Normalize to start of today
+    const today = new Date().setHours(0, 0, 0, 0);
     const startDate = new Date(process.env.START_DATE).getTime();
     // console.log(`Today's date (ms): ${today}`);
     // console.log(`Start date (ms): ${startDate}`);
@@ -34,8 +53,21 @@ export async function getWordOfTheDay(req, res) {
       index,
     ]);
 
-    // 3. Return the single word
-    res.json(result.rows[0]);
+    //write cache
+
+    const newWord = result.rows[0];
+
+    // 3. Update the object
+    cache.cacheword = newWord;
+    cache.date = todayStr;
+
+    // 4. Use the absolute path to write
+    fs.writeFile(cachePath, JSON.stringify(cache, null, 2), (err) => {
+      if (err) console.error("FileSystem Error:", err);
+      else console.log("Cache file updated on disk.");
+    });
+
+    res.json(newWord);
   } catch (error) {
     // Added 'error' here so we can actually log it
     console.error("Error fetching word of the day:", error);
