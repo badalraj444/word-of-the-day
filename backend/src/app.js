@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
-import pool from './config/db.js';
+// Note: We keep the pool import if routes need it, but the "check" moves to server.js
 import wordRouter from './routes/word.route.js';
 
 const app = express();
@@ -13,19 +13,9 @@ app.use(cors({
 app.use(express.json());
 app.use('/api', wordRouter);
 
-app.get('/api/health', (req, res)=>{
-    res.json({status: 'server is healthy'});
-})
-
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, ()=>{
-    console.log(`Server is running on port ${PORT}`);
-    pool.query('SELECT NOW()')
-    .then((res) => {
-      console.log('Connected to PostgreSQL at:', res.rows[0].now);
-    })
-    .catch((err) => {
-      console.error('Database connection error:', err.message);
-    });
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'server is healthy' });
 });
+
+// IMPORTANT: Export the app for server.js and Jest
+export default app;
