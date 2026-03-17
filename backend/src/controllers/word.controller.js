@@ -13,7 +13,7 @@ export const getWords = async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM words;");
     // PostgreSQL returns the data in result.rows
-    res.json(result.rows);
+    res.status(200).json(result.rows);
   } catch (error) {
     console.error("Error fetching words:", error);
     res.status(500).json({ error: "An error occurred while fetching words" });
@@ -120,7 +120,7 @@ export async function addWord(req, res) {
     console.log("Added a new word!");
 
     res
-      .status(200)
+      .status(201)
       .json({ message: "Word added successfully!", data: result.rows[0] });
   } catch (error) {
     if (error.code === "23505") {
