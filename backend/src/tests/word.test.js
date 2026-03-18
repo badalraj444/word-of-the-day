@@ -33,7 +33,7 @@ describe("Word API Tests", () => {
 
     expect([200, 201]).toContain(result.status);
 
-    // 🔥 Cleanup: delete only this word
+    //Cleanup: delete only this word
     await pool.query("DELETE FROM words WHERE word = $1", [testWord]);
   });
 
@@ -54,7 +54,7 @@ describe("Word API Tests", () => {
 
     expect(result.status).toBe(409);
 
-    // 🔥 Cleanup: delete only this word
+    // Cleanup: delete only this word
     await pool.query("DELETE FROM words WHERE word = $1", [testWord]);
   });
 

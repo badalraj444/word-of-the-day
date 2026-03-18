@@ -190,3 +190,34 @@
   filter: grayscale(1);
   pointer-events: none;
 }
+.loading-page {
+  /* 1. Make it a flex container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical center */
+  align-items: center;     /* Horizontal center */
+  
+  /* 2. Make it fill the available space */
+  min-height: 60vh; /* Takes up 60% of the viewport height */
+  width: 100%;
+  
+  /* 3. Remove the 'fixed' and 'right' properties */
+}
+
+.loading-message {
+  color: var(--text-muted); /* Muted looks more 'premium' for loading */
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  
+  /* 4. Add a subtle pulse animation */
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* 5. The Professional Touch: A simple Fade-Pulse */
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}

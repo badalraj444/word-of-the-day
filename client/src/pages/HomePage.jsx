@@ -24,7 +24,11 @@ const HomePage = () => {
 
   // Handle the UI states 
   if (loading) {
-    return <>Getting word....</>;
+    return <>
+    <div className='loading-page'>
+      <p className='loading-message'>Loading word of the day....</p>
+    </div>
+    </>;
   }
 
   if (!word) {

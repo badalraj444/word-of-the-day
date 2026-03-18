@@ -4,4 +4,10 @@ planning.md
 node_modules/
 dist/
 
+
 .env
+
+# concurrently runner
+
+package.json
+package-lock.json
