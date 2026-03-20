@@ -1,19 +1,17 @@
-/* Global variables - The "Theme" */
 :root {
-  --bg-main: #0f172a;       /* Dark Navy Blue */
-  --bg-surface: #1e293b;    /* Slightly lighter Slate for cards */
-  --text-primary: #f8fafc;  /* Clean White */
-  --text-muted: #94a3b8;    /* Muted Slate Gray */
-  --input-bg: #03102f;
-  --accent: #6366f1;        /* Modern Indigo */
-  --border-subtle: #334155; /* Dark Slate border */
-  /* Button Theme */
-  --input-bg: #0f172a; /* Same as bg-main to create contrast with the card */
-  --button-bg: var(--accent);
-  --button-hover: #4f46e5;
+  --bg-main: #0f1115;       /* Gunmetal Black */
+  --bg-surface: #1c1f26;    /* Dark Charcoal */
+  --text-primary: #f1f5f9;  /* Ice White */
+  --text-muted: #64748b;    /* Steel Gray */
+  --input-bg: #090b0e;
+  --accent: #38bdf8;        /* Sky Blue */
+  --border-subtle: #334155; 
+  --button-hover: #0ea5e9;
   --button-text: #ffffff;
-  --nav-bg: rgba(30, 41, 59, 0.8)
+  --nav-bg: rgba(28, 31, 38, 0.8);
 }
+
+
 
 body {
   margin: 0;
