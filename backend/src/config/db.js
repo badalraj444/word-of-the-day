@@ -11,12 +11,5 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-// pool.query('SELECT NOW()')
-//   .then((res) => {
-//     console.log('Connected to PostgreSQL at:', res.rows[0].now);
-//   })
-//   .catch((err) => {
-//     console.error('Database connection error:', err.message);
-//   });
 
 export default pool;

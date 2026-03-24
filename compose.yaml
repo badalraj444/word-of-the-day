@@ -1,0 +1,73 @@
+services:
+  backend:
+    build:
+      context: ./
+      target: backend-dev
+    environment:
+      - name=value
+      - PORT=5000
+      - DB_HOST=db
+      - DB_USER=postgres
+      - DB_PASSWORD=12345678
+      - DB_NAME=wordapp
+      - DB_PORT=5432
+      - START_DATE=2026-03-03
+      - TOTAL_WORDS=365
+    depends_on:
+      - db
+    develop:
+      watch:
+        - path: ./backend/src
+          action: sync
+          target: /usr/local/app/src
+        - path: ./backend/package.json
+          action: rebuild
+    ports:
+      - "5000:5000"
+
+  client:
+    build:
+      context: ./
+      target: client-dev
+    environment:
+      - VITE_MODE=development
+    depends_on:
+      - backend
+    develop:
+      watch:
+        - path: ./client/src
+          action: sync
+          target: /usr/local/app/src
+        - path: ./client/package.json
+          action: rebuild
+    ports:
+      - "5173:5173"
+
+  # Use postgres/example user/password credentials
+
+  db:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker compose
+    shm_size: 128mb
+    volumes:
+      - db_data:/var/lib/postgresql
+    environment:
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_USER: postgres
+      POSTGRES_DB: wordapp
+    # healthcheck:
+    #   test: ["CMD-SHELL", "pg_isready -U myuser -d mydatabase"]
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 5
+    #   start_period: 10s # Allows time for the container to bootstrap
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  db_data:
