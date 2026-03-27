@@ -221,3 +221,11 @@
   50% { opacity: 1; }
   100% { opacity: 0.4; }
 }
+
+.notfound-message {
+  color: var(--text-muted); /* Muted looks more 'premium' for loading */
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
