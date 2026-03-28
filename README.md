@@ -19,3 +19,14 @@ A full-stack application that delivers a new word daily with meaning and example
 
 /client - React frontend  
 /server - Express backend
+
+## Bulk words add :
+
+```json
+[
+  { "word": "serendipity", "meaning": "...", "example": "..." },
+  { "word": "ephemeral", "meaning": "...", "example": "..." }
+]`
+```
+
+send to POST/api/addwords

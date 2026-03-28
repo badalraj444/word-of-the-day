@@ -52,12 +52,13 @@ services:
     shm_size: 128mb
     volumes:
       - db_data:/var/lib/postgresql
+      - ./backend/src/db/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       POSTGRES_PASSWORD: 12345678
       POSTGRES_USER: postgres
       POSTGRES_DB: wordapp
     # healthcheck:
-    #   test: ["CMD-SHELL", "pg_isready -U myuser -d mydatabase"]
+    #   test: ["CMD-SHELL", "pg_isready -U myuser -d mydatabase"] 
     #   interval: 10s
     #   timeout: 5s
     #   retries: 5
