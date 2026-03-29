@@ -4,7 +4,7 @@ WORKDIR /usr/local/app
 FROM base AS client-base
 COPY client/package.json client/package-lock.json ./ 
 RUN npm install 
-COPY client/eslint.config.js client/index.html client/vite.config.js ./
+COPY client/eslint.config.js client/index.html client/vite.config.js client/public ./
 COPY client/src ./src   
 
 FROM client-base AS client-dev 
